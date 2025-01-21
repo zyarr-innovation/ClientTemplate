@@ -1,0 +1,45 @@
+<div class="update-container" fxLayout="column" fxLayoutAlign="center center">
+  <mat-card>
+    <mat-card-title>Update Student</mat-card-title>
+    <mat-card-content>
+      <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+        <!-- Name Field -->
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" required />
+          <mat-error *ngFor="let errorMessage of getErrorMessages('name')">
+            {{ errorMessage }}
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Aadhaar Field -->
+        <mat-form-field appearance="fill">
+          <mat-label>Aadhaar</mat-label>
+          <input matInput formControlName="adhaar" required />
+          <mat-error *ngFor="let errorMessage of getErrorMessages('adhaar')">
+            {{ errorMessage }}
+          </mat-error>
+        </mat-form-field>
+
+        <!-- School Field -->
+        <mat-form-field appearance="fill">
+          <mat-label>School</mat-label>
+          <input matInput formControlName="school" required />
+          <mat-error *ngFor="let errorMessage of getErrorMessages('school')">
+            {{ errorMessage }}
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Submit Button -->
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="updateForm.invalid"
+        >
+          Update
+        </button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
